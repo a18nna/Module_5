@@ -8,6 +8,58 @@ namespace exercise5_1
 {
     internal class Program
     {
+        static int[] GetArrayFromConsole(int num = 5)
+        {
+            var result = new int[num];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+                result[i] = int.Parse(Console.ReadLine());
+            }
+            return result;
+        }
+
+        static int[] SortArray(int[] array)
+        {
+            int temp = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    if (array[i] > array[j])
+                    {
+                        temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+            return array;
+        }
+
+        static void ShowArray(int[] array, bool IsSort = false)
+        {
+            var temp = array;
+            if (IsSort)
+            {
+                temp = SortArray(temp);
+            }
+            foreach (var sort in array)
+            {
+                Console.WriteLine(sort);
+            }
+        }
+
+        static void ShowColors(string userName, params string[] favColors)
+        {
+            Console.WriteLine($"{userName}, ваши любимые цвета: ");
+            foreach (var color in favColors)
+            {
+                Console.WriteLine(color);
+            }
+        }
+
         static string ShowColor(string userName, int userAge)
         {
             Console.WriteLine(userName + ", " + userAge + "\n Введите свой любимый цвет: ");
@@ -44,7 +96,10 @@ namespace exercise5_1
         }
         static void Main(string[] args)
         {
-            var (name, age) = ("Алена", 18);
+            int[] array = GetArrayFromConsole(10);
+            ShowArray(array, true);
+
+            /*var (name, age) = ("Алена", 18);
             Console.WriteLine("Моё имя: " + name + "\n" + "Мой возраст: " + age);
 
             Console.Write("Введите имя: ");
@@ -60,11 +115,7 @@ namespace exercise5_1
                 Console.WriteLine(favColors[i]);
             }
 
-            Console.WriteLine("Три ваших любимых цвета: ");
-            foreach (var i in favColors)
-            {
-                Console.WriteLine(i);
-            }
+            ShowColors(name);*/
 
             Console.ReadKey();
         }
