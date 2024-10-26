@@ -99,24 +99,6 @@ namespace exercise5_1
             int[] array = GetArrayFromConsole(10);
             ShowArray(array, true);
 
-            /*var (name, age) = ("Алена", 18);
-            Console.WriteLine("Моё имя: " + name + "\n" + "Мой возраст: " + age);
-
-            Console.Write("Введите имя: ");
-            name = Console.ReadLine();
-            Console.WriteLine("Введите возраст: ");
-            age = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ваше имя: " + name + " \n" + "Ваш возраст: " + age);
-
-            string[] favColors = new string[3];
-            for (int i = 0; i < 3; i++)
-            {
-                favColors[i] = ShowColor(name, age);
-                Console.WriteLine(favColors[i]);
-            }
-
-            ShowColors(name);*/
-
             Console.ReadKey();
         }
     }
