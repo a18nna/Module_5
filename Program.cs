@@ -8,28 +8,26 @@ namespace exercise5_1
 {
     internal class Program
     {
-        static void GetName(ref string name)
+       static void Echo(string saidworld, int deep)
         {
-            Console.WriteLine("Введите имя");
-            name = Console.ReadLine();
-        }
-
-        static int ShangeAge(int age)
-        {
-            age = age + 10;
-            return age;
+            var modif = saidworld;
+            if (modif.Length > 2)
+            {
+                modif = modif.Remove(0, 2);
+            }
+            Console.WriteLine($"...{modif}");
+            if (deep > 1)
+            {
+                Echo(modif, deep - 1); 
+            }
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите возраст: ");
-            int age = Convert.ToInt32(Console.ReadLine());
-            ShangeAge(age);
-
-            Console.WriteLine(age);
-
-            string name = Console.ReadLine();
-            GetName(ref name);
-            Console.WriteLine(name);
+            Console.WriteLine("Введите что-нибудь: ");
+            string saidworld = Console.ReadLine();
+            Console.WriteLine("Введите глубину эхо: ");
+            int deep = int.Parse(Console.ReadLine());
+            Echo(saidworld, deep);
 
             Console.ReadKey();
         }
